@@ -284,7 +284,6 @@ export const ticketById=(id)=>{
     data.forEach(el=>{ 
         if(el.id===Number(id)){
             returnobj=el;
-            return el;
         }
         return null;
     })
