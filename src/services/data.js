@@ -275,3 +275,16 @@ export const data = [
 export const allTickets=()=>{
     return data
 }
+
+export const ticketById=(id)=>{
+    let returnobj=null;
+    data.forEach(el=>{ 
+        if(el.id===Number(id)){
+            returnobj=el;
+            return el;
+        }
+        return null;
+    })
+    return returnobj;
+}
+
