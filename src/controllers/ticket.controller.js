@@ -1,6 +1,6 @@
 import { allTickets , ticketById} from "../services/data.js"
 export const getAllTickets=(req,res)=>{
-    const ticketArr= allTickets();
+    const ticketArr= allTickets(req.query);
     res.status(200).json(ticketArr)
 }
 

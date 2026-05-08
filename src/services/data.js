@@ -272,8 +272,49 @@ export const data = [
     }
 ]
 
-export const allTickets=()=>{
-    return data
+export const allTickets=(query)=>{
+    const {status, priority, assignee}= query;
+    
+    let currentData=data;
+    let returnData=[];
+    if(!status&&!priority&&!assignee){
+        returnData=data;
+    }
+    if(status){
+        console.log("Status")
+        currentData.forEach(el=>{
+            if(el.status===status){
+               returnData.push(el)
+            }
+        })
+        //this shortens the data array for other loops, as it will remove any ticket that won't be return anyways. 
+        currentData=returnData;
+        //resets return array for next loop
+        returnData=[]
+    }
+    if(priority){
+        console.log("Priority")
+        currentData.forEach(el=>{
+            if(el.priority===priority){
+                returnData.push(el)
+            }
+        })
+        currentData=returnData;
+        returnData=[]
+    }
+    if(assignee){
+        console.log("Assignee")
+        currentData.forEach(el=>{
+            if(el.assignee===assignee){
+                returnData.push(el)
+            }
+        })
+        currentData=returnData
+        returnData=[]
+    }
+    returnData=currentData;
+
+    return returnData;
 }
 
 export const ticketById=(id)=>{
