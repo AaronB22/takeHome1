@@ -5,7 +5,7 @@ import {router as ticketRouter} from './routers/ticket.routes.js'
 //read environment variables
 dotenv.config();
 
-app.get("/health",(req,res)=>{
+app.get("/health/status",(req,res)=>{
     res.status(200).json({
         ok: true,
         service: "Support Ticket Api"
