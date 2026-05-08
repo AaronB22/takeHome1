@@ -271,3 +271,7 @@ export const data = [
         tags: ["onboarding", "account"]
     }
 ]
+
+export const allTickets=()=>{
+    return data
+}
