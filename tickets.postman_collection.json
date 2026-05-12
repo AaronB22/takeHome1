@@ -1,0 +1,389 @@
+{
+  "info": {
+    "_postman_id": "6bdd45ed-3974-4c3c-a202-b03174387548",
+    "name": "tickets",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "45548159",
+    "_collection_link": "https://go.postman.co/collection/45548159-6bdd45ed-3974-4c3c-a202-b03174387548?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "All Tickets",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\":\"Gateway Arch\",\n    \"location\":\"St Louis\",\n    \"yearsCompleted\":\"1963\",\n    \"type\":\"Arch\",\n    \"heightFeet\":630,\n    \"theme\":\"St Louis Cardnials\"\n}ß"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/ticket/tickets",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket",
+            "tickets"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/health/status",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "health",
+            "status"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket/121",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket",
+            "121"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Query String with Multiple filters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket/tickets?status=open&priority=medium&assignee=jdoe",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket",
+            "tickets"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "open"
+            },
+            {
+              "key": "priority",
+              "value": "medium"
+            },
+            {
+              "key": "assignee",
+              "value": "jdoe"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Query By One filter",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket/tickets?status=open",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket",
+            "tickets"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "open"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sort",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket/tickets?sort=assignee",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket",
+            "tickets"
+          ],
+          "query": [
+            {
+              "key": "sort",
+              "value": "assignee"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Field Limiter with filters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket/tickets?status=open&priority=high&fields=id,status",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket",
+            "tickets"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "open"
+            },
+            {
+              "key": "priority",
+              "value": "high"
+            },
+            {
+              "key": "fields",
+              "value": "id,status"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Field limter No filters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket/tickets?fields=id,status,title,assignee",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket",
+            "tickets"
+          ],
+          "query": [
+            {
+              "key": "fields",
+              "value": "id,status,title,assignee"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Tags",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket/121/tags",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket",
+            "121",
+            "tags"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get ID Failure",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket/999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket",
+            "999"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sort with field limmiters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket/tickets?fields=id,status,title,assignee&sort=title",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket",
+            "tickets"
+          ],
+          "query": [
+            {
+              "key": "fields",
+              "value": "id,status,title,assignee"
+            },
+            {
+              "key": "sort",
+              "value": "title"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sort With no Query (will just return unsorted)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket/tickets?sort=",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket",
+            "tickets"
+          ],
+          "query": [
+            {
+              "key": "sort",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Tag Failure",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket/1221/tags",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket",
+            "1221",
+            "tags"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sort with Filters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/ticket/tickets?sort=assignee&status=open&priority=high",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "ticket",
+            "tickets"
+          ],
+          "query": [
+            {
+              "key": "sort",
+              "value": "assignee"
+            },
+            {
+              "key": "status",
+              "value": "open"
+            },
+            {
+              "key": "priority",
+              "value": "high"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

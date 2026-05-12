@@ -17,5 +17,12 @@ export const getTicektById=(req,res)=>{
 
 export const getTags=(req,res)=>{
     const ticket = ticketById(req.params.id)
-    res.status(200).json(ticket.tags)
+    if(!ticket){
+        res.status(404).json({
+            message:`No ticket with id ${req.params.id}`
+        })
+    }
+    else{
+        res.status(200).json(ticket.tags)
+    }
 }
